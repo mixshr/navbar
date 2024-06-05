@@ -5,6 +5,8 @@ import logo from './logo.svg'
 
 const Navbar = () => {
   const [showLinks, setShowLinks] = useState(true);
+  const linksContainerRef = useRef(null);
+  const linksRef = useRef(null);
   const toggleLinks = () => {
     setShowLinks(!showLinks);
   };
@@ -17,7 +19,7 @@ const Navbar = () => {
         </button>
       </div>
       {
-        showLinks && (<div className='links-container'>
+          showLinks && (<div className={showLinks ? 'links-container show-container' : 'links-container'}>
             <ul className="links">
               {
                 links.map((link) => {
